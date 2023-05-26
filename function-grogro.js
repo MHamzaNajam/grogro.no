@@ -57,4 +57,5 @@ if (currentProductSku.startsWith('2')) {
   // Automatically fill the checkout zipcode field with the entered zipcode
   document.querySelector('.ec-cart__shipping-zip').value = document.getElementById('zipcodeInput').value;
 }
+
 */
