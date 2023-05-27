@@ -4,8 +4,12 @@ function isIndividualProductPage(url) {
   return lastPart.startsWith('p');
 }
 
+async function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-function main()
+
+async function main()
 {
   console.log('main called due to page load');
   var url =  window.location.href;
@@ -13,11 +17,10 @@ function main()
   var isIndividual = isIndividualProductPage(url);
   if(!isIndividual) return;
   console.log("It is an individual product page!");
-  
+  await sleep(2000);
   var skuMeta = document.querySelector('meta[itemprop="sku"]');
   console.log('found meta?', skuMeta);
   var skuValue = skuMeta ? skuMeta.getAttribute('content') : null;
-  
   if(!skuValue) return;
   console.log('Individual Product SKU:', skuValue);
 
