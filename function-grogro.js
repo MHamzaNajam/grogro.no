@@ -21,10 +21,6 @@ function getAddToCartButton() {
   return null; // If no matching button is found
 }
 
-function getCartButtonContainer() {
-  var container = document.querySelector('.product-details-module.product-details__action-panel.details-product-purchase');
-  return container;
-}
 
 
 
@@ -62,11 +58,18 @@ async function main()
   // two probably - 1 for phone an 1 for pc let's see
   
   var addToCartButton = getAddToCartButton();
-  var buttonContainer = getCartButtonContainer();
+  
   
   // if there is no add to cart button
-  if(!addToCartButton || buttonContainer) {
-    console.log("can't be added to cart | no button container");
+  if(!addToCartButton) {
+    console.log("can't be added to cart - no add button");
+    return;
+  }
+  
+  var buttonContainer = addToCartButton.parentNode;
+  
+  if(!buttonContainer) {
+    console.log("no button container");
     return;
   }
   
@@ -76,9 +79,9 @@ async function main()
   var inputField = document.createElement('input');
   inputField.setAttribute('type', 'text');
   inputField.setAttribute('placeholder', 'Enter ZipCode!');
-
+  
   // Append the input field to the button container
-  buttonContainer.appendChild(inputField);
+  buttonContainer.insertBefore(inputField, addToCartButton);
   
 }
 
