@@ -24,8 +24,8 @@ function getAddToCartButton() {
 }
 
 function getDescription() {
-  const className = 'product-details__product-description';
-  const element = document.querySelector('.' + className);
+  const id = '10c5f2d4837968f6e0015084bcd2119910652553';
+  const element = document.getElementById(id);
   return element ? element.innerHTML : null;
 }
 
