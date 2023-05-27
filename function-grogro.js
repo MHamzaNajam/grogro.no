@@ -14,7 +14,7 @@ function main()
   if(!isIndividual) return;
   console.log("It is an individual product page!");
 }
-
-window.onpopstate = function() {
+main();
+window.onload = function() {
   main();
 };
