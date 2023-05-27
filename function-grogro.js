@@ -8,8 +8,8 @@ function isIndividualProductPage(url) {
 function main()
 {
   var url =  window.location.href;
-  var isIndividualProductPage = isIndividualProductPage(url);
-  if(!isIndividualProductPage) return;
+  var isIndividual = isIndividualProductPage(url);
+  if(!isIndividual) return;
   
   console.log("hello world");
   var currentProductSku = ecwidProduct.productId.toString();
