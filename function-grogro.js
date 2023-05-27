@@ -78,7 +78,7 @@ async function main()
   var buttonContainer = addToCartButton.parentNode.parentNode.parentNode;
   
   var description = getDescription();
-  description.style.marginTop = '50px';
+  description.style.marginTop = '80px';
   
   if(!buttonContainer) {
     console.log("no button container");
