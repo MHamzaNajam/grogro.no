@@ -24,7 +24,7 @@ function getAddToCartButton() {
 }
 
 function getDescription() {
-  const id = '10c5f2d4837968f6e0015084bcd2119910652553';
+  const id = 'productDescription';
   const element = document.getElementById(id);
   return element ? element : null;
 }
