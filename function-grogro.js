@@ -88,7 +88,7 @@ async function main()
 
   
   // Append the input field to the button container
-  buttonContainer.insertBefore(inputField, addToCartButton);
+  buttonContainer.prepend(inputField);  
   
 }
 
