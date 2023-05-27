@@ -80,6 +80,14 @@ async function main()
   var inputField = document.createElement('input');
   inputField.setAttribute('type', 'text');
   inputField.setAttribute('placeholder', 'Enter ZipCode!');
+  
+  // Apply styles to the input field
+  inputField.style.marginTop = '10px';
+  inputField.style.marginBottom = '10px';
+  inputField.style.padding = '5px';
+  inputField.style.textAlign = 'center';
+
+  
   // Prevent default behavior when clicking on the input field
   inputField.addEventListener('click', function(event) {
     event.preventDefault();
