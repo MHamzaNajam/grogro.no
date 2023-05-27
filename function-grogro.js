@@ -100,6 +100,13 @@ async function main()
   LinkButton.textContent = 'Finn en butikk';
   LinkButton.style.color = 'white';
   LinkButton.style.backgroundColor = '#191919';
+  LinkButton.style.textAlign = 'center';
+  LinkButton.style.paddingLeft = '20px';
+  LinkButton.style.paddingRight = '20px';
+  LinkButton.style.paddingTop = '10px';
+  LinkButton.style.paddingBottom = '10px';
+  LinkButton.style.fontSize = '16px';
+
   
   LinkButton.addEventListener('click', function() {
     window.open('https://www.google.com/maps/d/u/0/viewer?mid=1bC6jk4HTcF2ka_d7SNR7EzQ4T0gNUiPl&ll=60.07401596188039%2C10.496927318361355&z=8', '_blank');
@@ -131,7 +138,7 @@ async function main()
        warningParagraph.textContent = 'Vår leveringspartner kan ikke levere kjølevarer til din adresse helt enda. Klikk på knappen under for å se hvor GroGro er tilgjengelig i butikk';
        addToCartButton.style.display = "none";
        LinkButton.style.display = "block";
-       description.style.marginTop = '0px';
+       description.style.marginTop = '220px';
     }
     
   });
