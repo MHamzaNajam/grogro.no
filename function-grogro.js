@@ -23,6 +23,13 @@ function getAddToCartButton() {
   return null; // If no matching button is found
 }
 
+function getDescription() {
+  const className = 'product-details__product-description';
+  const element = document.querySelector('.' + className);
+  return element ? element.innerHTML : null;
+}
+
+
 
 async function main()
 {
@@ -70,6 +77,8 @@ async function main()
   
   var buttonContainer = addToCartButton.parentNode.parentNode.parentNode;
   
+  var description = getDescription();
+  
   if(!buttonContainer) {
     console.log("no button container");
     return;
@@ -103,10 +112,12 @@ async function main()
     if(isValidZipcode) {
       warningParagraph.textContent = '';
       addToCartButton.style.display = "block";
+      description.style.marginTop = '30px';
     }
     else {
        warningParagraph.textContent = 'The zipcode you entered is not valid!';
        addToCartButton.style.display = "none";
+      description.style.marginTop = '0px';
     }
     
   });
