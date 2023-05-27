@@ -106,7 +106,10 @@ async function main()
     if (!valid) {
       event.preventDefault();
     }
-    console.log(inputField.value);
+  });
+  
+    // validate zipcode
+  inputField.addEventListener('input', function(event) {
     let isValidZipcode = checkZipCode(inputField.value);
     if(isValidZipcode) {
       warningParagraph.textContent = '';
