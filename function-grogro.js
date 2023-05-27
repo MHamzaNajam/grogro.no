@@ -14,16 +14,9 @@ function main()
   console.log("hello world");
 
 }
-main();
+
 
 
 window.onload = function() {
-  // Call your method here
-  yourMethod();
+  main();
 };
-
-function yourMethod() {
-  // Perform your desired actions
-  console.log('Page loaded!');
-  // Add your custom logic here
-}
