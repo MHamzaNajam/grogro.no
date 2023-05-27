@@ -86,12 +86,16 @@ async function main()
   inputField.style.marginBottom = '10px';
   inputField.style.padding = '5px';
   inputField.style.textAlign = 'center';
-
   
-  // Prevent default behavior when clicking on the input field
-  inputField.addEventListener('click', function(event) {
-    event.preventDefault();
+  // Add event listener to allow only numbers
+  inputField.addEventListener('keypress', function(event) {
+    var key = event.which || event.keyCode;
+    var valid = (key >= 48 && key <= 57) || key === 8 || key === 0;
+    if (!valid) {
+      event.preventDefault();
+    }
   });
+
 
 
   
