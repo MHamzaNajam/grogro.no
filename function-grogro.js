@@ -39,6 +39,16 @@ async function main()
   }
   
   // if it is chilled
+  // get all the buttons (add to cart button)
+  // two probably - 1 for phone an 1 for pc let's see
+  
+  var buttons = document.querySelectorAll('.form-control__button');
+
+  // print the buttons!
+  buttons.forEach(function(button) {
+    console.log(button);
+  });
+
   
   
 
