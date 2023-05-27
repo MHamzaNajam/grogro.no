@@ -26,7 +26,7 @@ function getAddToCartButton() {
 function getDescription() {
   const id = '10c5f2d4837968f6e0015084bcd2119910652553';
   const element = document.getElementById(id);
-  return element ? element.innerHTML : null;
+  return element ? element : null;
 }
 
 
@@ -117,7 +117,7 @@ async function main()
     else {
        warningParagraph.textContent = 'The zipcode you entered is not valid!';
        addToCartButton.style.display = "none";
-      description.style.marginTop = '0px';
+       description.style.marginTop = '0px';
     }
     
   });
