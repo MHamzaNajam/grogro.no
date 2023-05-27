@@ -13,7 +13,7 @@ function getAddToCartButton() {
 
   for (var i = 0; i < buttons.length; i++) {
     var button = buttons[i];
-    if (button.textContent.trim() === 'Legg i kurven') {
+    if (button.textContent.trim() === 'Legg i kurven' || button.textContent.trim() === 'Add to cart') {
       return button;
     }
   }
