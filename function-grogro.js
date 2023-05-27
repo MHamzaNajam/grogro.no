@@ -7,15 +7,13 @@ function isIndividualProductPage(url) {
 
 function main()
 {
+  console.log('main called due to page load');
   var url =  window.location.href;
+  console.log('url', url);
   var isIndividual = isIndividualProductPage(url);
   if(!isIndividual) return;
-  
-  console.log("hello world");
-
+  console.log("It is an individual product page!");
 }
-
-
 
 window.onload = function() {
   main();
