@@ -149,7 +149,10 @@ async function main()
   
     // validate zipcode
   inputField.addEventListener('input', function(event) {
-    let isValidZipcode = checkZipCode(inputField.value);
+    let value = inputField.value;
+    let isValidZipcode = checkZipCode(value);
+  
+    
     if(isValidZipcode) {
       warningParagraph.textContent = '';
       addToCartButton.style.display = "block";
@@ -162,6 +165,10 @@ async function main()
        LinkButton.style.display = "block";
        description.style.marginTop = '180px';
     }
+    
+      if(value && value.length < 4) {
+        addToCartButton.style.display = "none";
+      }
     
   });
 
