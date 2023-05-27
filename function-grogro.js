@@ -66,14 +66,14 @@ async function main()
     return;
   }
   
-  var buttonContainer = addToCartButton.parentNode;
+  var buttonContainer = addToCartButton.parentNode.parentNode.parentNode;
   
   if(!buttonContainer) {
     console.log("no button container");
     return;
   }
   
-  console.log("button & container", addToCartButton, buttonContainer.parentNode.parentNode);
+  console.log("button & container", addToCartButton, buttonContainer);
   
   
   // Create an input element
