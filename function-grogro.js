@@ -8,6 +8,19 @@ async function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function getAddToCartButton() {
+  var buttons = document.querySelectorAll('.form-control__button');
+
+  for (var i = 0; i < buttons.length; i++) {
+    var button = buttons[i];
+    if (button.textContent.trim() === 'Legg i kurven') {
+      return button;
+    }
+  }
+
+  return null; // If no matching button is found
+}
+
 
 async function main()
 {
@@ -42,15 +55,16 @@ async function main()
   // get all the buttons (add to cart button)
   // two probably - 1 for phone an 1 for pc let's see
   
-  var buttons = document.querySelectorAll('.form-control__button');
-
-  // print the buttons!
-  buttons.forEach(function(button) {
-    console.log(button);
-  });
-
+  var addToCartButton = getAddToCartButton();
   
+  // if there is no add to cart button
+  if(!addToCartButton) {
+    console.log("can't be added to cart");
+    return;
+  }
   
+  console.log("button", addToCartButton);
+
 
 }
 
