@@ -75,10 +75,17 @@ async function main()
   
   console.log("button & container", addToCartButton, buttonContainer.parentNode.parentNode);
   
+  
   // Create an input element
   var inputField = document.createElement('input');
   inputField.setAttribute('type', 'text');
   inputField.setAttribute('placeholder', 'Enter ZipCode!');
+  // Prevent default behavior when clicking on the input field
+  inputField.addEventListener('click', function(event) {
+    event.preventDefault();
+  });
+
+
   
   // Append the input field to the button container
   buttonContainer.insertBefore(inputField, addToCartButton);
