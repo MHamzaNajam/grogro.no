@@ -13,6 +13,13 @@ function main()
   var isIndividual = isIndividualProductPage(url);
   if(!isIndividual) return;
   console.log("It is an individual product page!");
+  
+  var skuMeta = document.querySelector('meta[itemprop="sku"]');
+  var skuValue = skuMeta ? skuMeta.getAttribute('content') : null;
+  
+  if(!skuValue) return;
+  console.log('Individual Product SKU:', skuValue);
+
 }
 
 window.onload = function() {
