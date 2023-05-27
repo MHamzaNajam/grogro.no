@@ -56,6 +56,7 @@ async function main()
   // two probably - 1 for phone an 1 for pc let's see
   
   var addToCartButton = getAddToCartButton();
+  addToCartButton.style.display = "none";
   
   
   // if there is no add to cart button
@@ -98,9 +99,11 @@ async function main()
     let isValidZipcode = checkZipCode(inputField.value);
     if(isValidZipcode) {
       warningParagraph.textContent = '';
+      addToCartButton.style.display = "block";
     }
     else {
        warningParagraph.textContent = 'The zipcode you entered is not valid!';
+       addToCartButton.style.display = "none";
     }
     
   });
