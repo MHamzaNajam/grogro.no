@@ -89,13 +89,25 @@ async function main()
   // Create an input element
   var inputField = document.createElement('input');
   inputField.setAttribute('type', 'text');
-  inputField.setAttribute('placeholder', 'Enter ZipCode!');
+  inputField.setAttribute('placeholder', 'Postnummer');
+  inputField.style.textAlign = 'center';
   
   var warningParagraph = document.createElement('p');
-  warningParagraph.textContent = 'Select a zipcode!';
-  warningParagraph.style.color = 'red';
+  warningParagraph.textContent = 'Kan dette produktet sendes til meg?';
   
-  inputField.style.textAlign = 'center';
+  
+  const LinkButton = document.createElement('button');
+  LinkButton.textContent = 'Finn en butikk';
+  LinkButton.style.color = 'white';
+  LinkButton.style.backgroundColor = '#191919';
+  
+  LinkButton.addEventListener('click', function() {
+    window.open('https://www.google.com/maps/d/u/0/viewer?mid=1bC6jk4HTcF2ka_d7SNR7EzQ4T0gNUiPl&ll=60.07401596188039%2C10.496927318361355&z=8', '_blank');
+  });
+
+
+  
+
   
   // Add event listener to allow only numbers
   inputField.addEventListener('keypress', function(event) {
@@ -112,22 +124,26 @@ async function main()
     if(isValidZipcode) {
       warningParagraph.textContent = '';
       addToCartButton.style.display = "block";
-      description.style.marginTop = '80px';
+       LinkButton.style.display = "none";
+      description.style.marginTop = '100px';
     }
     else {
-       warningParagraph.textContent = 'The zipcode you entered is not valid!';
+       warningParagraph.textContent = 'Vår leveringspartner kan ikke levere kjølevarer til din adresse helt enda. Klikk på knappen under for å se hvor GroGro er tilgjengelig i butikk';
        addToCartButton.style.display = "none";
+       LinkButton.style.display = "block";
        description.style.marginTop = '0px';
     }
     
   });
 
 
-
   
   // Append the input field to the button container
+  buttonContainer.prepend(LinkButton); 
   buttonContainer.prepend(warningParagraph); 
   buttonContainer.prepend(inputField);  
+
+
   
 }
 
