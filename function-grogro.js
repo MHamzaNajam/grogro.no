@@ -12,8 +12,7 @@ function main()
   if(!isIndividual) return;
   
   console.log("hello world");
-  var currentProductSku = ecwidProduct.productId.toString();
-  console.log('product sku', currentProductSku);
+
 }
 main();
 
