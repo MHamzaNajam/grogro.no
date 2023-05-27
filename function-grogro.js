@@ -86,7 +86,7 @@ async function main()
   }
   
   console.log("button & container", addToCartButton, buttonContainer);
-  addToCartButton.disabled = true;
+  addToCartButton.style.display = 'none';
   
   // Create an input element
   var inputField = document.createElement('input');
@@ -113,11 +113,11 @@ async function main()
     let isValidZipcode = checkZipCode(inputField.value);
     if(isValidZipcode) {
       warningParagraph.textContent = '';
-      addToCartButton.disabled = false;
+      addToCartButton.style.display = 'block';
     }
     else {
        warningParagraph.textContent = 'The zipcode you entered is not valid!';
-       addToCartButton.disabled = true;
+       addToCartButton.style.display = 'none';
     }
     
   });
