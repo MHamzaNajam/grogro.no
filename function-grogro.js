@@ -15,6 +15,7 @@ function main()
   console.log("It is an individual product page!");
   
   var skuMeta = document.querySelector('meta[itemprop="sku"]');
+  console.log('found meta?', skyMeta);
   var skuValue = skuMeta ? skuMeta.getAttribute('content') : null;
   
   if(!skuValue) return;
