@@ -73,7 +73,7 @@ async function main()
     return;
   }
   
-  console.log("button & container", addToCartButton, buttonContainer);
+  console.log("button & container", addToCartButton, buttonContainer.parentNode.parentNode);
   
   // Create an input element
   var inputField = document.createElement('input');
