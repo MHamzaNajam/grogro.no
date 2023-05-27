@@ -36,7 +36,7 @@ async function main()
   console.log("It is an individual product page!");
   
   // give time to load the dom
-  await sleep(2000);
+  await sleep(5000);
   
   //
   var skuMeta = document.querySelector('meta[itemprop="sku"]');
