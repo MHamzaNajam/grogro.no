@@ -22,6 +22,18 @@ function getAddToCartButton() {
 }
 
 
+function checkZipCode(value) {
+  var zipCodes = ["12345", "67890", "54321", "98765"]; // Array of zip codes
+  
+  // Check if the value exists in the zip code array
+  if (zipCodes.includes(value)) {
+    return true; // Value found in the array
+  } else {
+    return false; // Value not found in the array
+  }
+}
+
+
 
 
 async function main()
@@ -81,10 +93,10 @@ async function main()
   inputField.setAttribute('type', 'text');
   inputField.setAttribute('placeholder', 'Enter ZipCode!');
   
-  // Apply styles to the input field
-  inputField.style.marginTop = '10px';
-  inputField.style.marginBottom = '10px';
-  inputField.style.padding = '5px';
+  var warningParagraph = document.createElement('p');
+  warningParagraph.textContent = '';
+  warningParagraph.style.color = 'red';
+  
   inputField.style.textAlign = 'center';
   
   // Add event listener to allow only numbers
@@ -94,12 +106,22 @@ async function main()
     if (!valid) {
       event.preventDefault();
     }
+    
+    let isValidZipcode = checkZipCode(inputField.value);
+    if(isValidZipcode) {
+      warningParagraph.textContent = '';
+    }
+    else {
+       warningParagraph.textContent = 'The zipcode you entered is not valid!';
+    }
+    
   });
 
 
 
   
   // Append the input field to the button container
+  buttonContainer.prepend(warningParagraph); 
   buttonContainer.prepend(inputField);  
   
 }
