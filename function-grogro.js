@@ -5,7 +5,13 @@ function isIndividualProductPage(url) {
 }
 
 
-var url =  window.location.href;
-var isIndividualProduct = isIndividualProductPage(url);
+function main()
+{
+  var url =  window.location.href;
+  var isIndividualProductPage = isIndividualProductPage(url);
+  if(!isIndividualProductPage) return;
+  
+  console.log("hello world");
 
-alert(isIndividualProduct);
+}
+main();
