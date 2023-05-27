@@ -15,6 +15,6 @@ function main()
   console.log("It is an individual product page!");
 }
 
-window.onload = function() {
+window.onpopstate = function() {
   main();
 };
