@@ -166,7 +166,7 @@ async function main()
        description.style.marginTop = '180px';
     }
     
-      if(value && value.length < 4) {
+      if((!value) || (value && value.length < 4)) {
         addToCartButton.style.display = "none";
       }
     
