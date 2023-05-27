@@ -27,11 +27,10 @@ async function main()
 }
 
 window.onload = function() {
-  main();
+  setTimeout(function() { 
+    main();
+  }, 2000); 
 };
 
-document.addEventListener("DOMContentLoaded", function() {
-   // function body
-  console.log('is this the real page load?');
-});
+
 
