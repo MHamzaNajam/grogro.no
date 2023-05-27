@@ -92,6 +92,12 @@ async function main()
   inputField.setAttribute('type', 'text');
   inputField.setAttribute('placeholder', 'Postnummer');
   inputField.style.textAlign = 'center';
+  // Apply the desired styles
+  inputField.style.padding = '10px';
+  inputField.style.fontSize = '16px';
+  inputField.style.outline = 'none';
+  inputField.style.border = '1px solid black';
+
   
   var warningParagraph = document.createElement('p');
   warningParagraph.textContent = 'Kan dette produktet sendes til meg?';
