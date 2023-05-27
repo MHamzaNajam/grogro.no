@@ -11,25 +11,41 @@ async function sleep(ms) {
 
 async function main()
 {
+  // page load
   console.log('main called due to page load');
   var url =  window.location.href;
   console.log('url', url);
+  
   var isIndividual = isIndividualProductPage(url);
   if(!isIndividual) return;
   console.log("It is an individual product page!");
+  
+  // give time to load the dom
   await sleep(2000);
+  
+  //
   var skuMeta = document.querySelector('meta[itemprop="sku"]');
   console.log('found meta?', skuMeta);
   var skuValue = skuMeta ? skuMeta.getAttribute('content') : null;
+  
   if(!skuValue) return;
+  // print the sku for the product
   console.log('Individual Product SKU:', skuValue);
+  
+  // check if chilled or unchilled
+  if(!skuValue.startsWith("2")){
+    console.log("It's an unchilled product");
+    return;
+  }
+  
+  // if it is chilled
+  
+  
 
 }
 
 window.onload = function() {
-  setTimeout(function() { 
     main();
-  }, 2000); 
 };
 
 
