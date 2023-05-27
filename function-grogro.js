@@ -112,7 +112,7 @@ async function main()
     if(isValidZipcode) {
       warningParagraph.textContent = '';
       addToCartButton.style.display = "block";
-      description.style.marginTop = '30px';
+      description.style.marginTop = '80px';
     }
     else {
        warningParagraph.textContent = 'The zipcode you entered is not valid!';
