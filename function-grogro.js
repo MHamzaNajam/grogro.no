@@ -4,6 +4,8 @@ function isIndividualProductPage(url) {
   return lastPart.startsWith('p');
 }
 
+let currentURL = null;
+
 async function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -27,6 +29,7 @@ async function main()
   // page load
   console.log('main called due to page load');
   var url =  window.location.href;
+  currentURL = url;
   console.log('url', url);
   
   var isIndividual = isIndividualProductPage(url);
@@ -117,9 +120,15 @@ async function main()
   
 }
 
-window.onload = function() {
-    main();
-};
+
+main();
+// if page has changed!
+setInterval(function() {
+  if(window.location.href !== currentURL) main();
+}, 1000);
+
+
+
 
 
 
