@@ -110,6 +110,18 @@ async function main()
   LinkButton.style.borderRadius = '10px';
   LinkButton.style.outline = 'none';
   LinkButton.style.border = 'none';
+  LinkButton.style.cursor = 'pointer';
+  
+  // Add event listener for mouseenter (hover)
+  LinkButton.addEventListener('mouseenter', function() {
+    LinkButton.style.backgroundColor = '#3F3F3F'; // Change to desired background color on hover
+  });
+
+  // Add event listener for mouseleave (hover off)
+  LinkButton.addEventListener('mouseleave', function() {
+    LinkButton.style.backgroundColor = '#191919'; // Revert to initial background color on hover off
+  });
+
 
   
   LinkButton.addEventListener('click', function() {
