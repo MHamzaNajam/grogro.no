@@ -14,7 +14,13 @@ function main()
   if(!isIndividual) return;
   console.log("It is an individual product page!");
 }
-main();
+
 window.onload = function() {
   main();
 };
+
+document.addEventListener("DOMContentLoaded", function() {
+   // function body
+  console.log('is this the real page load?');
+});
+
