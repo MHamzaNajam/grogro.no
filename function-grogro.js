@@ -16,3 +16,15 @@ function main()
   console.log('product sku', currentProductSku);
 }
 main();
+
+
+window.onload = function() {
+  // Call your method here
+  yourMethod();
+};
+
+function yourMethod() {
+  // Perform your desired actions
+  console.log('Page loaded!');
+  // Add your custom logic here
+}
