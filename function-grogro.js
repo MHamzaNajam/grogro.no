@@ -152,7 +152,7 @@ async function main() {
   customContainer.append(LinkButton);
 
   // Insert the container before the "Add to Cart" button
-  addToCartButton.parentNode.insertBefore(customContainer, addToCartButton);
+  addToCartButton.parentNode.parentNode.insertBefore(customContainer, addToCartButton.parentNode);
 }
 
 // Call the main function when the page loads
