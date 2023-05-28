@@ -23,6 +23,14 @@ function getAddToCartButton() {
   return null; // If no matching button is found
 }
 
+function isSomethingInCart(){
+   var somethingInCart = document.querySelectorAll('.details-product-purchase--in-bag details-product-purchase--add-more details-product-purchase--checkout');
+   return (somethingInCart ? true : false);
+}
+
+
+
+
 function getDescription() {
   const id = 'productDescription';
   const element = document.getElementById(id);
@@ -45,6 +53,8 @@ async function main()
   
   // give time to load the dom
   await sleep(5000);
+  
+  console.log('there is something added in cart?, isSomethingInCart());
   
   //
   var skuMeta = document.querySelector('meta[itemprop="sku"]');
