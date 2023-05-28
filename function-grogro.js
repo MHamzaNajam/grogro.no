@@ -119,11 +119,12 @@ async function main()
   LinkButton.style.width = '80%';
   LinkButton.style.backgroundColor = '#191919';
   LinkButton.style.textAlign = 'center';
-  LinkButton.style.paddingLeft = '20px';
-  LinkButton.style.paddingRight = '20px';
-  LinkButton.style.paddingTop = '20px';
-  LinkButton.style.paddingBottom = '20px';
-  LinkButton.style.fontSize = '16px';
+  LinkButton.style.paddingLeft = '15px';
+  LinkButton.style.paddingRight = '15px';
+  LinkButton.style.paddingTop = '15px';
+  LinkButton.style.paddingBottom = '15px';
+  LinkButton.style.fontSize = '18px';
+  LinkButton.style.fontWeight = 'bold';
   LinkButton.style.borderRadius = '10px';
   LinkButton.style.outline = 'none';
   LinkButton.style.border = 'none';
