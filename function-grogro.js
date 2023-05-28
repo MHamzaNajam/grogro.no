@@ -55,7 +55,6 @@ async function main()
   await sleep(5000);
   
   console.log('there is something added in cart?', isSomethingInCart());
-  let offSetYDueToCartItem = isSomethingInCart() ? 100 : 0;
   
   //
   var skuMeta = document.querySelector('meta[itemprop="sku"]');
@@ -76,22 +75,20 @@ async function main()
   // get all the buttons (add to cart button)
   // two probably - 1 for phone an 1 for pc let's see
   
-  var addToCartButton = getAddToCartButton();  
+  var addToCartButton = getAddToCartButton();
+  addToCartButton.style.display = "none";
+  
   
   // if there is no add to cart button
   if(!addToCartButton) {
     console.log("can't be added to cart - no add button");
     return;
   }
-  // otherwise
-  addToCartButton.style.display = "none";
-  addToCartButton.style.marginTop = `{offSetYDueToCartItem}px`;
-  
   
   var buttonContainer = addToCartButton.parentNode.parentNode.parentNode;
   
   var description = getDescription();
-  description.style.marginTop = `{offSetYDueToCartItem + 80}px`;
+  description.style.marginTop = '80px';
   
   if(!buttonContainer) {
     console.log("no button container");
@@ -110,12 +107,10 @@ async function main()
   inputField.style.fontSize = '16px';
   inputField.style.outline = 'none';
   inputField.style.border = '1px solid black';
-  inputField.style.marginTop = `{offSetYDueToCartItem}px`;
 
   
   var warningParagraph = document.createElement('p');
   warningParagraph.textContent = 'Kan dette produktet sendes til meg?';
-  warningParagraph.style.marginTop = `{offSetYDueToCartItem}px`;
   
   
   const LinkButton = document.createElement('button');
@@ -132,7 +127,6 @@ async function main()
   LinkButton.style.outline = 'none';
   LinkButton.style.border = 'none';
   LinkButton.style.cursor = 'pointer';
-  LinkButton.style.marginTop = `{offSetYDueToCartItem}px`;
   
   // Add event listener for mouseenter (hover)
   LinkButton.addEventListener('mouseenter', function() {
@@ -173,13 +167,13 @@ async function main()
       warningParagraph.textContent = '';
       addToCartButton.style.display = "block";
       LinkButton.style.display = "none";
-      description.style.marginTop = `{offSetYDueToCartItem + 100}px`;
+      description.style.marginTop = '100px';
     }
     else {
        warningParagraph.textContent = 'Vår leveringspartner kan ikke levere kjølevarer til din adresse helt enda. Klikk på knappen under for å se hvor GroGro er tilgjengelig i butikk';
        addToCartButton.style.display = "none";
        LinkButton.style.display = "block";
-         description.style.marginTop = `{offSetYDueToCartItem + 180}px`;
+       description.style.marginTop = '180px';
     }
     
       if((!value) || (value && value.length < 4)) {
@@ -222,7 +216,6 @@ function checkZipCode(value) {
     return false; // Value not found in the array
   }
 }
-
 
 
 
