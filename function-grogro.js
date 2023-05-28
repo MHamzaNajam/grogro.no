@@ -85,7 +85,7 @@ async function main()
     return;
   }
   
-  var buttonContainer = addToCartButton.parentNode.parentNode.parentNode;
+  var buttonContainer = addToCartButton.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
   
   var description = getDescription();
   description.style.marginTop = '80px';
