@@ -88,7 +88,6 @@ async function main()
   var buttonContainer = addToCartButton.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
   
   var description = getDescription();
-  description.style.marginTop = '80px';
   
   if(!buttonContainer) {
     console.log("no button container");
@@ -167,13 +166,11 @@ async function main()
       warningParagraph.textContent = '';
       addToCartButton.style.display = "block";
       LinkButton.style.display = "none";
-      description.style.marginTop = '100px';
     }
     else {
        warningParagraph.textContent = 'Vår leveringspartner kan ikke levere kjølevarer til din adresse helt enda. Klikk på knappen under for å se hvor GroGro er tilgjengelig i butikk';
        addToCartButton.style.display = "none";
        LinkButton.style.display = "block";
-       description.style.marginTop = '180px';
     }
     
       if((!value) || (value && value.length < 4)) {
