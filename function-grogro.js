@@ -100,8 +100,9 @@ async function main()
   var inputField = document.createElement('input');
   inputField.setAttribute('type', 'text');
   inputField.setAttribute('placeholder', 'Postnummer');
-  inputField.style.textAlign = 'center';
   // Apply the desired styles
+  inputField.style.textAlign = 'center';
+  inputField.style.width = '100%';
   inputField.style.padding = '10px';
   inputField.style.fontSize = '16px';
   inputField.style.outline = 'none';
