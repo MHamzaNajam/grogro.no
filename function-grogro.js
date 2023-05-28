@@ -1,118 +1,91 @@
+// Initialize currentURL variable
+let currentURL = null;
+
+// Function to sleep for a given number of milliseconds
+async function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// Function to check if the URL corresponds to an individual product page
 function isIndividualProductPage(url) {
   var parts = url.split('-');
   var lastPart = parts[parts.length - 1];
   return lastPart.startsWith('p');
 }
 
-let currentURL = null;
-
-async function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
+// Function to get the "Add to Cart" button element
 function getAddToCartButton() {
   var buttons = document.querySelectorAll('.form-control__button');
-
   for (var i = 0; i < buttons.length; i++) {
     var button = buttons[i];
     if (button.textContent.trim() === 'Legg i kurven' || button.textContent.trim() === 'Add to cart') {
       return button;
     }
   }
-
   return null; // If no matching button is found
 }
 
-function isSomethingInCart(){
-   var somethingInCart = document.querySelectorAll('.details-product-purchase--in-bag details-product-purchase--add-more details-product-purchase--checkout');
-   return (somethingInCart ? true : false);
-}
-
-
-
-
-function getDescription() {
-  const id = 'productDescription';
-  const element = document.getElementById(id);
-  return element ? element : null;
-}
-
-
-
-async function main()
-{
-  // page load
+// Main function
+async function main() {
+  // Print a message indicating that main is called due to page load
   console.log('main called due to page load');
-  var url =  window.location.href;
+  
+  // Get the current URL
+  var url = window.location.href;
   currentURL = url;
   console.log('url', url);
-  
+
+  // Check if it is an individual product page
   var isIndividual = isIndividualProductPage(url);
-  if(!isIndividual) return;
+  if (!isIndividual) return;
   console.log("It is an individual product page!");
-  
-  // give time to load the dom
+
+  // Give time to load the DOM
   await sleep(5000);
   
-  console.log('there is something added in cart?', isSomethingInCart());
-  
-  //
+  // Get the SKU (Stock Keeping Unit) value for the product
   var skuMeta = document.querySelector('meta[itemprop="sku"]');
   console.log('found meta?', skuMeta);
   var skuValue = skuMeta ? skuMeta.getAttribute('content') : null;
+
+  if (!skuValue) return;
   
-  if(!skuValue) return;
-  // print the sku for the product
+  // Print the SKU for the product
   console.log('Individual Product SKU:', skuValue);
-  
-  // check if chilled or unchilled
-  if(!skuValue.startsWith("2")){
+
+  // Check if the product is chilled or unchilled
+  if (!skuValue.startsWith("2")) {
     console.log("It's an unchilled product");
     return;
   }
-  
-  // if it is chilled
-  // get all the buttons (add to cart button)
-  // two probably - 1 for phone an 1 for pc let's see
-  
+
+  // If it is a chilled product, get the "Add to Cart" button and hide it
   var addToCartButton = getAddToCartButton();
+
+  // If there is no "Add to Cart" button
+  if (!addToCartButton) {
+    console.log("Can't be added to cart - no add button");
+    return;
+  }
+  
   addToCartButton.style.display = "none";
-  
-  
-  // if there is no add to cart button
-  if(!addToCartButton) {
-    console.log("can't be added to cart - no add button");
-    return;
-  }
-  
-  var buttonContainer = addToCartButton.parentNode.parentNode;
-  
-  var description = getDescription();
-  description.style.marginTop = '80px';
-  
-  if(!buttonContainer) {
-    console.log("no button container");
-    return;
-  }
-  
-  console.log("button & container", addToCartButton, buttonContainer);
-  
-  // Create an input element
+
+  // Create an input element for the postcode
   var inputField = document.createElement('input');
   inputField.setAttribute('type', 'text');
   inputField.setAttribute('placeholder', 'Postnummer');
-  inputField.style.textAlign = 'center';
   // Apply the desired styles
+  inputField.style.textAlign = 'center';
   inputField.style.padding = '10px';
   inputField.style.fontSize = '16px';
   inputField.style.outline = 'none';
   inputField.style.border = '1px solid black';
 
-  
+  // Create a warning paragraph
   var warningParagraph = document.createElement('p');
   warningParagraph.textContent = 'Kan dette produktet sendes til meg?';
   
-  
+  // Create a button to go to the list of available locations
   const LinkButton = document.createElement('button');
   LinkButton.textContent = 'Finn en butikk';
   LinkButton.style.color = 'white';
@@ -127,7 +100,7 @@ async function main()
   LinkButton.style.outline = 'none';
   LinkButton.style.border = 'none';
   LinkButton.style.cursor = 'pointer';
-  
+
   // Add event listener for mouseenter (hover)
   LinkButton.addEventListener('mouseenter', function() {
     LinkButton.style.backgroundColor = '#3F3F3F'; // Change to desired background color on hover
@@ -138,17 +111,12 @@ async function main()
     LinkButton.style.backgroundColor = '#191919'; // Revert to initial background color on hover off
   });
 
-
-  
+  // Go to the desired link on an external page when the button is clicked
   LinkButton.addEventListener('click', function() {
     window.open('https://www.google.com/maps/d/u/0/viewer?mid=1bC6jk4HTcF2ka_d7SNR7EzQ4T0gNUiPl&ll=60.07401596188039%2C10.496927318361355&z=8', '_blank');
   });
 
-
-  
-
-  
-  // Add event listener to allow only numbers
+  // Add event listener to allow only numbers in the input field
   inputField.addEventListener('keypress', function(event) {
     var key = event.which || event.keyCode;
     var valid = (key >= 48 && key <= 57) || key === 8 || key === 0;
@@ -156,51 +124,44 @@ async function main()
       event.preventDefault();
     }
   });
-  
-    // validate zipcode
+
+  // Validate the entered zipcode
   inputField.addEventListener('input', function(event) {
     let value = inputField.value;
     let isValidZipcode = checkZipCode(value);
-  
-    
-    if(isValidZipcode) {
+
+    if (isValidZipcode) {
       warningParagraph.textContent = '';
       addToCartButton.style.display = "block";
       LinkButton.style.display = "none";
-      description.style.marginTop = '100px';
+    } else {
+      warningParagraph.textContent = 'Vår leveringspartner kan ikke levere kjølevarer til din adresse helt enda. Klikk på knappen under for å se hvor GroGro er tilgjengelig i butikk';
+      addToCartButton.style.display = "none";
+      LinkButton.style.display = "block";
     }
-    else {
-       warningParagraph.textContent = 'Vår leveringspartner kan ikke levere kjølevarer til din adresse helt enda. Klikk på knappen under for å se hvor GroGro er tilgjengelig i butikk';
-       addToCartButton.style.display = "none";
-       LinkButton.style.display = "block";
-       description.style.marginTop = '180px';
+
+    if ((!value) || (value && value.length < 4)) {
+      addToCartButton.style.display = "none";
     }
-    
-      if((!value) || (value && value.length < 4)) {
-        addToCartButton.style.display = "none";
-      }
-    
   });
 
+  // Create a container element to hold the input field, warning paragraph, and link button
+  const customContainer = document.createElement('button');
+  customContainer.append(inputField);
+  customContainer.append(warningParagraph);
+  customContainer.append(LinkButton);
 
-  
-  // Append the input field to the button container
-  buttonContainer.prepend(LinkButton); 
-  buttonContainer.prepend(warningParagraph); 
-  buttonContainer.prepend(inputField);  
-
-
-  
+  // Insert the container before the "Add to Cart" button
+  addToCartButton.parentNode.parentNode.insertBefore(customContainer, addToCartButton.parentNode);
 }
 
-
+// Call the main function when the page loads
 main();
-// if page has changed!
+
+// Check if the page has changed at regular intervals
 setInterval(function() {
-  if(window.location.href !== currentURL) main();
+  if (window.location.href !== currentURL) main();
 }, 1000);
-
-
 
 
 
