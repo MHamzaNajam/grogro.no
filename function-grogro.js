@@ -164,12 +164,12 @@ async function main()
     
     if(isValidZipcode) {
       warningParagraph.textContent = '';
-      addToCartButton.style.display = "block";
+      addToCartButton.style.visibility = "visible";
       LinkButton.style.display = "none";
     }
     else {
        warningParagraph.textContent = 'Vår leveringspartner kan ikke levere kjølevarer til din adresse helt enda. Klikk på knappen under for å se hvor GroGro er tilgjengelig i butikk';
-       addToCartButton.style.display = "none";
+       addToCartButton.style.visibility = "hidden";
        LinkButton.style.display = "block";
     }
     
