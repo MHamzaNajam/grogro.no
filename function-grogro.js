@@ -23,6 +23,20 @@ function getAddToCartButton() {
   return null; // If no matching button is found
 }
 
+function getCheckoutButton() {
+  var buttons = document.querySelectorAll('.form-control__button');
+
+  for (var i = 0; i < buttons.length; i++) {
+    var button = buttons[i];
+    if (button.textContent.trim() === 'Gå til kassen' || button.textContent.trim() === 'Go to checkout') {
+      return button;
+    }
+  }
+
+  return null; // If no matching button is found
+}
+
+
 function isSomethingInCart(){
    var somethingInCart = document.querySelectorAll('.details-product-purchase--in-bag details-product-purchase--add-more details-product-purchase--checkout');
    return (somethingInCart ? true : false);
@@ -54,7 +68,6 @@ async function main()
   // give time to load the dom
   await sleep(5000);
   
-  console.log('there is something added in cart?', isSomethingInCart());
   
   //
   var skuMeta = document.querySelector('meta[itemprop="sku"]');
@@ -77,6 +90,11 @@ async function main()
   
   var addToCartButton = getAddToCartButton();
   addToCartButton.style.display = "none";
+  
+  // 
+  var checkoutButton = getCheckoutButton();
+  if(isSomethingInCart() && checkoutButton) checkoutButton.style.marginTop = '20px';
+  
   
   
   // if there is no add to cart button
