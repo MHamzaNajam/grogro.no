@@ -54,7 +54,7 @@ async function main()
   // give time to load the dom
   await sleep(5000);
   
-  console.log('there is something added in cart?, isSomethingInCart());
+  console.log('there is something added in cart?', isSomethingInCart());
   
   //
   var skuMeta = document.querySelector('meta[itemprop="sku"]');
