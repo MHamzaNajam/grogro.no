@@ -116,12 +116,13 @@ async function main()
   const LinkButton = document.createElement('button');
   LinkButton.textContent = 'Finn en butikk';
   LinkButton.style.color = 'white';
+  LinkButton.style.width = '100%';
   LinkButton.style.backgroundColor = '#191919';
   LinkButton.style.textAlign = 'center';
   LinkButton.style.paddingLeft = '20px';
   LinkButton.style.paddingRight = '20px';
-  LinkButton.style.paddingTop = '10px';
-  LinkButton.style.paddingBottom = '10px';
+  LinkButton.style.paddingTop = '20px';
+  LinkButton.style.paddingBottom = '20px';
   LinkButton.style.fontSize = '16px';
   LinkButton.style.borderRadius = '10px';
   LinkButton.style.outline = 'none';
