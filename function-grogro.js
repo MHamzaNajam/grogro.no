@@ -146,7 +146,7 @@ async function main() {
   });
 
   // Create a container element to hold the input field, warning paragraph, and link button
-  const customContainer = document.createElement('button');
+  const customContainer = document.createElement('div');
   customContainer.append(inputField);
   customContainer.append(warningParagraph);
   customContainer.append(LinkButton);
