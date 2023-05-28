@@ -186,13 +186,13 @@ async function main()
     if(isValidZipcode) {
       warningParagraph.textContent = '';
       addToCartButton.style.display = "block";
-      LinkButton.style.display = "none";
+      LinkButton.style.visibility = "hidden";
       if(isSomethingInCart() && checkoutButton) checkoutButton.style.marginTop = '0px';
     }
     else {
        warningParagraph.textContent = 'Vår leveringspartner kan ikke levere kjølevarer til din adresse helt enda. Klikk på knappen under for å se hvor GroGro er tilgjengelig i butikk';
        addToCartButton.style.display = "none";
-       LinkButton.style.display = "block";
+       LinkButton.style.visibility = "visible";
       if(isSomethingInCart() && checkoutButton) checkoutButton.style.marginTop = '20px';
     }
     
