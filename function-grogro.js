@@ -152,6 +152,7 @@ async function main()
   LinkButton.style.outline = 'none';
   LinkButton.style.border = 'none';
   LinkButton.style.cursor = 'pointer';
+  LinkButton.style.display = "none";
   
   // Add event listener for mouseenter (hover)
   LinkButton.addEventListener('mouseenter', function() {
