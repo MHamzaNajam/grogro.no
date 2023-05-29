@@ -127,6 +127,11 @@ async function main()
   inputField.style.border = '1px solid black';
   inputField.style.color = 'white';
   inputField.style.backgroundColor = 'black';
+  inputField.id = 'darkInputFieldForZipCode';
+  var styleElement = document.createElement("style");
+  styleElement.innerHTML = "#darkInputFieldForZipCode::placeholder { color: white; }"; // Replace "myInput" with the ID of your input element
+  document.head.appendChild(styleElement);
+
 
 
   var questionParagraph = document.createElement('p');
