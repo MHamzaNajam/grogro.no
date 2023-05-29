@@ -117,7 +117,7 @@ async function main()
   // Create an input element
   var inputField = document.createElement('input');
   inputField.setAttribute('type', 'text');
-  inputField.setAttribute('placeholder', 'Postnummeret ditt');
+  inputField.setAttribute('placeholder', 'Skriv postnummeret ditt');
   // Apply the desired styles
   inputField.style.textAlign = 'center';
   inputField.style.width = '100%';
@@ -127,10 +127,12 @@ async function main()
   inputField.style.border = '1px solid black';
   inputField.style.color = 'white';
   inputField.style.backgroundColor = 'black';
-  // inputField.id = 'darkInputFieldForZipCode';
-  // var styleElement = document.createElement("style");
-  // styleElement.innerHTML = "#darkInputFieldForZipCode::placeholder { color: white; }"; // Replace "myInput" with the ID of your input element
-  // document.head.appendChild(styleElement);
+  inputField.style.fontWeight = 'bold';
+  inputField.id = 'darkInputFieldForZipCode';
+  var styleElement = document.createElement("style");
+  styleElement.innerHTML = "#darkInputFieldForZipCode::placeholder { color: white; }"; // Replace "myInput" with the ID of your input element
+  document.head.appendChild(styleElement);
+  
 
 
 
