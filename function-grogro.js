@@ -211,6 +211,7 @@ async function main()
         addToCartButton.style.display = "none";
         // if(isSomethingInCart() && checkoutButton)  addToCartButton.style.display = "block";
          console.log('really?', isSomethingInCart());
+         console.log(document.querySelector('.details-product-purchase__checkout'));
          questionParagraph = 'Kan dette produktet sendes til meg?';
       }
     else {
