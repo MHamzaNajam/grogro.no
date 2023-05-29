@@ -129,9 +129,11 @@ async function main()
   inputField.style.backgroundColor = 'black';
 
 
+  var questionParagraph = document.createElement('p');
+  questionParagraph = 'Kan dette produktet sendes til meg?';
   
   var warningParagraph = document.createElement('p');
-  warningParagraph.textContent = 'Kan dette produktet sendes til meg?';
+  warningParagraph.textContent = '';
   
   
   const LinkButton = document.createElement('button');
@@ -202,14 +204,21 @@ async function main()
       if((!value) || (value && value.length < 4)) {
         addToCartButton.style.display = "none";
         if(isSomethingInCart() && checkoutButton)  addToCartButton.style.display = "block";
-        
+         questionParagraph = 'Kan dette produktet sendes til meg?';
       }
+    else {
+       questionParagraph = '';
+    }
+    
+    
+    
     
   });
 
 
   
   // Append the input field to the button container
+  buttonContainer.prepend(questionParagraph); 
   buttonContainer.prepend(LinkButton); 
   buttonContainer.prepend(warningParagraph); 
   buttonContainer.prepend(inputField);  
