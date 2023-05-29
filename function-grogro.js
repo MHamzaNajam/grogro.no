@@ -209,7 +209,7 @@ async function main()
     
       if((!value) || (value && value.length < 4)) {
         addToCartButton.style.display = "none";
-        if(isSomethingInCart() && checkoutButton)  addToCartButton.style.display = "block";
+        // if(isSomethingInCart() && checkoutButton)  addToCartButton.style.display = "block";
          questionParagraph = 'Kan dette produktet sendes til meg?';
       }
     else {
