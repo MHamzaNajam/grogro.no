@@ -117,7 +117,7 @@ async function main()
   // Create an input element
   var inputField = document.createElement('input');
   inputField.setAttribute('type', 'text');
-  inputField.setAttribute('placeholder', 'Postnummer');
+  inputField.setAttribute('placeholder', 'Postnummeret ditt');
   // Apply the desired styles
   inputField.style.textAlign = 'center';
   inputField.style.width = '100%';
@@ -125,6 +125,9 @@ async function main()
   inputField.style.fontSize = '16px';
   inputField.style.outline = 'none';
   inputField.style.border = '1px solid black';
+  inputField.style.color = 'white';
+  inputField.style.backgroundColor = 'black';
+
 
   
   var warningParagraph = document.createElement('p');
