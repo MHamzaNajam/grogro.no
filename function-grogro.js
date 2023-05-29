@@ -218,10 +218,10 @@ async function main()
 
   
   // Append the input field to the button container
-  buttonContainer.prepend(questionParagraph); 
   buttonContainer.prepend(LinkButton); 
   buttonContainer.prepend(warningParagraph); 
   buttonContainer.prepend(inputField);  
+  buttonContainer.prepend(questionParagraph); 
 
 
   
