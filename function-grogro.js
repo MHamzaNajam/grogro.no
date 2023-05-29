@@ -38,7 +38,7 @@ function getCheckoutButton() {
 
 
 function isSomethingInCart(){
-   var somethingInCart = document.querySelectorAll('.details-product-purchase--in-bag details-product-purchase--add-more details-product-purchase--checkout');
+   var somethingInCart = document.querySelectorAll('.details-product-purchase--add-more details-product-purchase--checkout');
    return (somethingInCart ? true : false);
 }
 
