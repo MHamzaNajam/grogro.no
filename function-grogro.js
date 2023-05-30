@@ -224,7 +224,7 @@ async function main()
        questionParagraph = '';
     }
     
-    console.log(warningParagraph.innerHtml);
+    console.log(warningParagraph.innerHTML);
     
     
     
