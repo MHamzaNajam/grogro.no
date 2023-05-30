@@ -207,7 +207,7 @@ async function main()
       if(isSomethingInCart() && checkoutButton) checkoutButton.style.marginTop = '0px';
     }
     else {
-       warningParagraph.innerHTML = 'Vår leveringspartner kan ikke levere kjølevarer til din adresse helt enda. Men, sjekk ut våre Råwbarer som kan sendes til hele Norge!<br/><br/>Klikk på knappen under for å se hvor våre ferske varer er tilgjengelig i butikk.';
+       warningParagraph.innerHTML = 'Vår leveringspartner kan ikke levere kjølevarer til din adresse helt enda. Men, sjekk ut våre   <a href="https://example.com">Råwbarer</a> som kan sendes til hele Norge!<br/><br/>Klikk på knappen under for å se hvor våre ferske varer er tilgjengelig i butikk.';
        addToCartButton.style.display = "none";
        LinkButton.style.display = "block";
       if(isSomethingInCart() && checkoutButton) checkoutButton.style.marginTop = '20px';
