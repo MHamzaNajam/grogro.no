@@ -121,7 +121,9 @@ async function main()
   // Apply the desired styles
   inputField.style.textAlign = 'center';
   inputField.style.width = '100%';
-  inputField.style.padding = '10px';
+  inputField.style.padding = '15px';
+  inputField.style.marginTop = '15px';
+  inputField.style.marginBottom = '15px';
   inputField.style.fontSize = '16px';
   inputField.style.outline = 'none';
   inputField.style.border = '1px solid black';
@@ -153,9 +155,9 @@ async function main()
   LinkButton.style.paddingRight = '15px';
   LinkButton.style.paddingTop = '15px';
   LinkButton.style.paddingBottom = '15px';
+  LinkButton.style.marginTop = '15px';
   LinkButton.style.fontSize = '18px';
   LinkButton.style.fontWeight = 'bold';
-  LinkButton.style.borderRadius = '10px';
   LinkButton.style.outline = 'none';
   LinkButton.style.border = 'none';
   LinkButton.style.cursor = 'pointer';
