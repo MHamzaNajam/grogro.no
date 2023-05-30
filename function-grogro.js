@@ -196,6 +196,8 @@ async function main()
   inputField.addEventListener('input', function(event) {
     let value = inputField.value;
     let isValidZipcode = checkZipCode(value);
+    
+    
   
     
     if(isValidZipcode) {
@@ -221,6 +223,8 @@ async function main()
     else {
        questionParagraph = '';
     }
+    
+    console.log(warningParagraph.innerHtml);
     
     
     
