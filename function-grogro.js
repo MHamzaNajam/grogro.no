@@ -117,7 +117,7 @@ async function main()
   // Create an input element
   var inputField = document.createElement('input');
   inputField.setAttribute('type', 'text');
-  inputField.setAttribute('placeholder', 'Skriv postnummeret ditt');
+  inputField.setAttribute('placeholder', 'Legg inn postnummer');
   // Apply the desired styles
   inputField.style.textAlign = 'center';
   inputField.style.width = '100%';
@@ -207,7 +207,7 @@ async function main()
       if(isSomethingInCart() && checkoutButton) checkoutButton.style.marginTop = '0px';
     }
     else {
-       warningParagraph.innerHTML = 'Vår leveringspartner kan ikke levere kjølevarer til din adresse helt enda. Men, sjekk ut våre   <a href="https://grogro.no/products/Rawbar-c149956610" target="_blank">Råwbarer</a> som kan sendes til hele Norge!<br/><br/>Klikk på knappen under for å se hvor våre ferske varer er tilgjengelig i butikk.';
+       warningParagraph.innerHTML = 'Vår leveringspartner kan ikke levere kjølevarer til din adresse helt enda. Men, sjekk ut våre   <a href="https://grogro.no/products/Rawbar-c149956610">Råwbarer</a> som kan sendes til hele Norge!<br/><br/>Klikk på knappen under for å se hvor våre ferske varer er tilgjengelig i butikk.';
        addToCartButton.style.display = "none";
        LinkButton.style.display = "block";
       if(isSomethingInCart() && checkoutButton) checkoutButton.style.marginTop = '20px';
