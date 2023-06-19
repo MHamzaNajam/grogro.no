@@ -3,9 +3,9 @@ function executeOnEcwidAvailable(intervalMs) {
     //  && typeof 
     if (typeof window.Ecwid !== 'undefined') {
       //
-      console.log('this is printed', Ecwid);
-      Ecwid.OnPageLoaded.add(function(page) { console.log("hi") });
-      Ecwid.OnPageLoad.add(function(page) { console.log("hello!") });
+      console.log('this is printed', Ecwid, Ecwid?.acceptLanguage);
+      // Ecwid.OnPageLoaded.add(function(page) { console.log("hi") });
+      // Ecwid.OnPageLoad.add(function(page) { console.log("hello!") });
     }
   }
   var intervalId = setInterval(checkEcwidAvailability, intervalMs);
