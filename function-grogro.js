@@ -1,16 +1,15 @@
 function executeOnEcwidAvailable(callback, intervalMs) {
-  var executed = false; // Flag to track execution status
-
+  var executed = false;
   function checkEcwidAvailability() {
-    if (typeof window.Ecwid !== 'undefined' && !executed) {
-      executed = true; // Set the flag to true
-      callback(); // Call the callback function
+    if (typeof window.Ecwid !== 'undefined' && typeof window.Ecwid.OnPageLoadeded !== 'undefined' &&  typeof window.Ecwid.OnPageLoad !== 'undefined' && !executed) {
+      executed = true; 
+      callback();
     }
   }
 
-  var intervalId = setInterval(checkEcwidAvailability, intervalMs); // Start checking Ecwid availability on the given interval
+  var intervalId = setInterval(checkEcwidAvailability, intervalMs);
 
-  // Stop the interval once Ecwid becomes available
+
   function stopInterval() {
     if (executed) {
       clearInterval(intervalId);
@@ -21,12 +20,15 @@ function executeOnEcwidAvailable(callback, intervalMs) {
   setTimeout(stopInterval, 10000); // Change 10000 to the desired duration in milliseconds
 }
 
-// Usage:
+
 executeOnEcwidAvailable(function() {
-  // This code will be executed whenever Ecwid becomes available
-  window.Ecwid.OnPageLoaded.add(function(page) {
-    if (page.type == "SITE") {
-      // Do something with the Ecwid store page...
-    }
+  // page load
+  window.Ecwid.OnPageLoadeded.add(function(page) {
+    console.log('main should be run');
   });
-}, 1000); // Change 1000 to the desired interval duration in milliseconds
+  // page change
+  window.Ecwid.OnPageLoad.add(function(page) {
+    console.log('main should be run');
+  });
+
+}, 1000); 
