@@ -64,6 +64,10 @@ async function main()
   var isIndividual = isIndividualProductPage(url);
   if(!isIndividual) return;
   console.log("It is an individual product page!");
+
+  var addToCartButton = getAddToCartButton();
+  addToCartButton.style.display = "none";
+
   
   // give time to load the dom
   await sleep(5000);
@@ -81,6 +85,7 @@ async function main()
   // check if chilled or unchilled
   if(!skuValue.startsWith("2")){
     console.log("It's an unchilled product");
+    addToCartButton.style.display = "block";
     return;
   }
   
@@ -88,8 +93,7 @@ async function main()
   // get all the buttons (add to cart button)
   // two probably - 1 for phone an 1 for pc let's see
   
-  var addToCartButton = getAddToCartButton();
-  addToCartButton.style.display = "none";
+ 
   
   // 
   var checkoutButton = getCheckoutButton();
