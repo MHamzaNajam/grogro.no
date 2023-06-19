@@ -55,6 +55,9 @@ function getDescription() {
 
 async function main()
 {
+
+
+  
   // page load
   console.log('main called due to page load');
   var url =  window.location.href;
@@ -65,13 +68,10 @@ async function main()
   if(!isIndividual) return;
   console.log("It is an individual product page!");
 
-  var addToCartButton = getAddToCartButton();
-  addToCartButton.style.display = "none";
+
 
   
-  // give time to load the dom
-  await sleep(5000);
-  
+
   
   //
   var skuMeta = document.querySelector('meta[itemprop="sku"]');
@@ -85,7 +85,6 @@ async function main()
   // check if chilled or unchilled
   if(!skuValue.startsWith("2")){
     console.log("It's an unchilled product");
-    addToCartButton.style.display = "block";
     return;
   }
   
@@ -95,7 +94,9 @@ async function main()
   
  
   
-  // 
+  var addToCartButton = getAddToCartButton();
+  addToCartButton.style.display = "none";
+  
   var checkoutButton = getCheckoutButton();
   if(isSomethingInCart() && checkoutButton) checkoutButton.style.marginTop = '20px';
   
@@ -248,14 +249,17 @@ async function main()
 }
 
 
-main();
+// main();
 // if page has changed!
-setInterval(function() {
-  if(window.location.href !== currentURL) main();
-}, 1000);
+// setInterval(function() {
+  // if(window.location.href !== currentURL) main();
+// }, 1000);
 
 
 
+window.Ecwid.OnPageLoaded.add(function(page) {
+    console.log("oh yeeh, loaded");
+});
 
 
 
