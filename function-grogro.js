@@ -56,7 +56,7 @@ function getDescription() {
 async function main()
 {
   // give time to load the dom
-  await sleep(500);
+  // await sleep(500);
   
   // page load
   console.log('main called due to page load');
