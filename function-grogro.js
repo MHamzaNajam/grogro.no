@@ -1,7 +1,8 @@
 function executeOnEcwidAvailable(intervalMs) {
   var executed = false;
   function checkEcwidAvailability() {
-    if (typeof window.Ecwid !== 'undefined' && typeof window.Ecwid.onPageLoad !== 'undefined' && typeof window.Ecwid.onPageLoaded !== 'undefined'&& !executed) {
+    //  && typeof window.Ecwid.onPageLoad !== 'undefined' && typeof window.Ecwid.onPageLoaded !== 'undefined'&& !executed
+    if (typeof window.Ecwid !== 'undefined') {
       executed = true;
       //
       console.log('oh yee?', window.Ecwid);
