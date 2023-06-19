@@ -5,8 +5,9 @@ function executeOnEcwidAvailable(intervalMs) {
     if (typeof window.Ecwid !== 'undefined' && !executed) {
       executed = true;
       //
-      window.Ecwid.OnPageLoaded.add(function(page) { console.log("hi") });
-      window.Ecwid.OnPageLoad.add(function(page) { console.log("hello!") });
+      console.log(Ecwid);
+      // window.Ecwid.OnPageLoaded.add(function(page) { console.log("hi") });
+      // window.Ecwid.OnPageLoad.add(function(page) { console.log("hello!") });
     }
   }
   var intervalId = setInterval(checkEcwidAvailability, intervalMs);
