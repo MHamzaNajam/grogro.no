@@ -6,8 +6,8 @@ function executeOnEcwidAvailable(intervalMs) {
       executed = true;
       //
       console.log('oh yee?', window.Ecwid);
-      console.log('on page link change : ',  window.Ecwid.OnPageLoad);
-      console.log('on page load : ',  window.Ecwid.OnPageLoaded);
+      console.log('on page link change : ',  window.Ecwid.OnPageLoad?.add);
+      console.log('on page load : ',  window.Ecwid.OnPageLoaded?.add);
     }
   }
   var intervalId = setInterval(checkEcwidAvailability, intervalMs);
