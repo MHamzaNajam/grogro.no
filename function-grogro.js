@@ -1,11 +1,9 @@
 function executeOnEcwidAvailable(intervalMs) {
-  var executed = false;
   function checkEcwidAvailability() {
     //  && typeof 
-    if (typeof window.Ecwid !== 'undefined' && !executed) {
-      executed = true;
+    if (typeof window.Ecwid !== 'undefined') {
       //
-      console.log(Ecwid);
+      console.log('this is printed', Ecwid);
       Ecwid.OnPageLoaded.add(function(page) { console.log("hi") });
       Ecwid.OnPageLoad.add(function(page) { console.log("hello!") });
     }
