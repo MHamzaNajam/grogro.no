@@ -1,15 +1,18 @@
 function executeOnEcwidAvailable(intervalMs) {
-  function checkEcwidAvailability() {
 
-    let pageLoadFound = false;
-    let pageLoadedFound = false;
+  let pageLoadFound = false;
+  let pageLoadedFound = false;
+  
+  function checkEcwidAvailability() {
+    
     if (typeof window.Ecwid !== 'undefined') {
+      
       if(Ecwid?.OnPageLoad && !pageLoadFound) {
-        console.log('hi');
+        console.log('page load found, add handler for page Load');
         pageLoadFound = true;
       }
        if(Ecwid?.OnPageLoaded && !pageLoadedFound) {
-        console.log('hello');
+        console.log('page loaded found, add handler for page Loaded');
         pageLoadedFound = true;
       }
 
